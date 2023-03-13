@@ -48,3 +48,16 @@ object Esercizio2a extends App:
   print("NegFun ")
   println(notEmptyFun("foo") && !notEmptyFun(""))
   println()
+
+
+  //Exercise c
+  def negGen[X](f: (X => Boolean)): (X => Boolean) =
+    s => !f(s)
+
+  val notEmptyGen = negGen(empty)
+
+  println("NegGen " + notEmptyGen("fool"))
+  println("NegGen " + notEmptyGen(""))
+  print("NegGen ")
+  println(notEmptyGen("foo") && !notEmptyGen(""))
+  println()
