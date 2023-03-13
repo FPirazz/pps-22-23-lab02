@@ -48,4 +48,3 @@ object Esercizio2a extends App:
   print("NegFun ")
   println(notEmptyFun("foo") && !notEmptyFun(""))
   println()
-
