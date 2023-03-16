@@ -61,3 +61,15 @@ object Esercizio2a extends App:
   print("NegGen ")
   println(notEmptyGen("foo") && !notEmptyGen(""))
   println()
+
+  //Exercise2b
+  val p1: Int => Int => Int => Boolean = x => y => z => x <= y && x <= z && y == z
+
+  println(p1(1)(2)(2))
+
+  //val p2:
+  //def p3()
+  //def p4()
+
+
+
