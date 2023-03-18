@@ -95,14 +95,6 @@ object Esercizio2a extends App:
   println()
 
   //Exercise 6
-
-  def time[R](block: => R): R = {
-    val t0 = System.nanoTime()
-    val result = block // call-by-name
-    val t1 = System.nanoTime()
-    println("Elapsed time: " + (t1 - t0) + "ns")
-    result
-  }
   def gcd(a: Int, b: Int): Int = b != 0 && a > b match
     case true => gcd(b, a % b)
     case false => a
@@ -110,9 +102,6 @@ object Esercizio2a extends App:
   println(gcd(12, 8)) //4
   println(gcd(14, 7)) //7
   println()
-
-  time{ gcd(12, 8) }
-
 
 
   @annotation.tailrec
@@ -124,4 +113,8 @@ object Esercizio2a extends App:
   println(gcdTail(14, 7)) //7
   println()
 
-  time{ gcdTail(12, 8) }
+  //Exercise 7
+  enum Shape:
+    case Rectangle(sideA: Double, sideB: Double)
+    case Circle(diameter: Double)
+    case Square(side: Double)
