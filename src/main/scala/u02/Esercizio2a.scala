@@ -116,5 +116,29 @@ object Esercizio2a extends App:
   //Exercise 7
   enum Shape:
     case Rectangle(sideA: Double, sideB: Double)
-    case Circle(diameter: Double)
+    case Circle(radius: Double)
     case Square(side: Double)
+
+  object shapeProperties:
+    def perimeter(shape: Shape): Double = shape match
+      case Shape.Rectangle(x, y) => (x * 2) + (y * 2)
+      case Shape.Circle(x) => (x * 2) * 3.14
+      case Shape.Square(x) => x * 4
+
+    //def contains(shape: Shape, point: (Double, Double)): Boolean
+
+  import shapeProperties.*
+
+  println(perimeter(Shape.Rectangle(12, 7)))
+  //println(contains(Shape.Rectangle()))
+  println()
+
+  println(perimeter(Shape.Circle(17.5)))
+  //println(contains(Shape.Circle()))
+
+  println()
+
+  println(perimeter(Shape.Square(4)))
+  //println(contains(Shape.Square()))
+
+  println()
