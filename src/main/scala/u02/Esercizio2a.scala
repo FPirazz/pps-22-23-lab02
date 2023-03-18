@@ -63,8 +63,7 @@ object Esercizio2a extends App:
   println(notEmptyGen("foo") && !notEmptyGen(""))
   println()
 
-  //Exercise2b
-  //Point 4
+  //Exercise4
   val p1: Int => Int => Int => Boolean = x => y => z => x <= y && x <= z && y == z
   println(p1(1)(2)(2))
   println(p1(1)(2)(3))
@@ -86,5 +85,10 @@ object Esercizio2a extends App:
   println(p4(1, 2, 3)) //false
   println()
 
+  //Exercise 5
+  def compose(f: Int => Int, g: Int => Int): Int => Int = x => f(g(x))
+  println(compose(_ - 1, _ * 2)(5)) // 9
+  println()
 
-
+  def genCompose[X](f: X => X, g: X => X): X => X = x => f(g(x))
+  println(genCompose[Int](_ - 1, _ * 2)(5)) // 9
