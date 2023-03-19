@@ -5,23 +5,18 @@ object HomeExercises extends App:
   //Point a
 
   //Lambda
-  def positiveFun(x: Int): String = x match
+  def positiveFunction(x: Int): String = x match
     case x if x >= 0 => "positive"
     case x if x < 0 => "negative"
-
-    println("PositiveFun " + positiveFun(5))
-    println("PositiveFun " + positiveFun(-5))
-    println("PositiveFun " + positiveFun(0))
-    println()
 
   //Method
-  val positiveLamb: Int => String = _ match
+  val positiveLambda: Int => String = _ match
     case x if x >= 0 => "positive"
     case x if x < 0 => "negative"
 
-  println("PositiveLamb " + positiveLamb(5))
-  println("PositiveLamb " + positiveLamb(-5))
-  println("PositiveLamb " + positiveLamb(0))
+  println("PositiveLamb " + positiveLambda(5))
+  println("PositiveLamb " + positiveLambda(-5))
+  println("PositiveLamb " + positiveLambda(0))
   println()
 
 
