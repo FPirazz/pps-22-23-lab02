@@ -2,6 +2,7 @@ package u02
 
 import HomeExercises.*
 import HomeExercises.shapeProperties.*
+import HomeExercises.Option.*
 import junit.framework.TestCase.assertTrue
 import org.junit.Assert.{assertEquals, assertFalse}
 import org.junit.Test
@@ -107,3 +108,18 @@ class HomeExercisesTest:
     assertFalse(contains(Shape.Square(4, (0, 0)), (3, 5)))
 
 
+  //Exercise 8
+  @Test
+  def testFilter() =
+    assertEquals(Some(5), filter(Some(5))(_ > 2))
+    assertEquals(None(), filter(Some(5))(_ > 8))
+    assertEquals(None(), filter(None[Int]())(_ > 2))
+  @Test
+  def testMap() =
+    assertEquals(Some(true), map(Some(5))(_ > 2))
+    assertEquals(Some(false), map(Some(5))(_ > 8))
+    assertEquals(None(), map(None[Int]())(_ > 2))
+  @Test
+  def testFold() =
+    assertEquals(6, fold(Some(5))(1)(_ + 1))
+    assertEquals(1, fold(None[Int]())(1)(_ + 1))
