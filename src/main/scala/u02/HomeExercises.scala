@@ -1,6 +1,6 @@
 package u02
 
-object Esercizio2a extends App:
+object HomeExercises extends App:
   //Exercise 3
   //Point a
 
