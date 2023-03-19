@@ -26,43 +26,22 @@ object HomeExercises extends App:
   //Method
   def negativeMethod(f: (String => Boolean)): (String => Boolean) =
     s => !f(s)
-
   val notEmptyFunction = negativeMethod(empty)
 
-  
+
   //Point c
-  def negGen[X](f: (X => Boolean)): (X => Boolean) =
+  def negativeGeneric[X](f: (X => Boolean)): (X => Boolean) =
     s => !f(s)
-
-  val notEmptyGen = negGen(empty)
-
-  println("NegGen " + notEmptyGen("fool"))
-  println("NegGen " + notEmptyGen(""))
-  print("NegGen ")
-  println(notEmptyGen("foo") && !notEmptyGen(""))
-  println()
-
+  val notEmptyGeneric = negativeGeneric(empty)
+  
+  
   //Exercise4
   val p1: Int => Int => Int => Boolean = x => y => z => x <= y && x <= z && y == z
-  println(p1(1)(2)(2))
-  println(p1(1)(2)(3))
-  println()
 
   val p2: (Int, Int, Int) => Boolean = (x, y, z) => x <= y && x <= z && y == z
-  println(p2(1, 2, 2)) //true
-  println(p2(1, 2, 3)) //false
-  println()
-
   def p3(x: Int)(y: Int)(z: Int): Boolean = x <= y && x <= z && y == z
-  val p3test = p3(1)(2)
-  println(p3test(2)) //true
-  println(p3test(3)) //false
-  println()
-
   def p4(x: Int, y: Int, z: Int): Boolean = x <= y && x <= z && y == z
-  println(p4(1, 2, 2)) //true
-  println(p4(1, 2, 3)) //false
-  println()
+  
 
   //Exercise 5
   def compose(f: Int => Int, g: Int => Int): Int => Int = x => f(g(x))

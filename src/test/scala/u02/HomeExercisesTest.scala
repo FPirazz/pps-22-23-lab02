@@ -28,13 +28,45 @@ class HomeExercisesTest:
   //Lambda
   @Test
   def testNegativeLambda() =
-    assertTrue("positive", notEmptyLambda("fool"))
-    assertFalse("negative", notEmptyLambda(""))
-    assertTrue("positive", notEmptyLambda("foo") && !notEmptyLambda(""))
+    assertTrue(notEmptyLambda("fool"))
+    assertFalse(notEmptyLambda(""))
+    assertTrue(notEmptyLambda("foo") && !notEmptyLambda(""))
 
   //Method
   @Test
   def testNegativeMethod() =
-    assertTrue("positive", notEmptyFunction("fool"))
-    assertFalse("negative", notEmptyFunction(""))
-    assertTrue("positive", notEmptyFunction("foo") && !notEmptyFunction(""))
+    assertTrue(notEmptyFunction("fool"))
+    assertFalse(notEmptyFunction(""))
+    assertTrue(notEmptyFunction("foo") && !notEmptyFunction(""))
+
+
+  //Point c
+  @Test
+  def testNegativeGeneric() =
+    assertTrue(notEmptyGeneric("fool"))
+    assertFalse(notEmptyGeneric(""))
+    assertTrue(notEmptyGeneric("foo") && !notEmptyGeneric(""))
+
+
+  //Exercise 4
+  @Test
+  def testP1() =
+    assertTrue(p1(1)(2)(2))
+    assertFalse(p1(1)(2)(3))
+
+  @Test
+  def testP2() =
+    assertTrue(p2(1, 2, 2))
+    assertFalse(p2(1, 2, 3))
+
+  @Test
+  def testP3() =
+    val p3test = p3(1)(2)
+    assertTrue(p3test(2))
+    assertFalse(p3test(3))
+
+  @Test
+  def testP4() =
+    assertTrue(p4(1, 2, 2))
+    assertFalse(p4(1, 2, 3))
+
