@@ -1,6 +1,7 @@
 package u02
 
 import HomeExercises.*
+import HomeExercises.shapeProperties.*
 import junit.framework.TestCase.assertTrue
 import org.junit.Assert.{assertEquals, assertFalse}
 import org.junit.Test
@@ -86,3 +87,23 @@ class HomeExercisesTest:
   def testTailGCD() =
     assertEquals(4, gcdTail(12, 8))
     assertEquals(7, gcdTail(14, 7))
+
+
+  //Exercise 7
+  @Test
+  def testRectangleProperties() =
+    assertEquals(38, perimeter(Shape.Rectangle(12, 7, (0, 0))).round)
+    assertTrue(contains(Shape.Rectangle(12, 7, (0, 0)), (5, 4)))
+    assertFalse(contains(Shape.Rectangle(2, 3, (0, 0)), (5, 4)))
+  @Test
+  def testCircleProperties() =
+    assertEquals(110, perimeter(Shape.Circle(17.5, (0, 0))).round)
+    assertTrue(contains(Shape.Circle(17.5, (0, 0)), (10, 8)))
+    assertFalse(contains(Shape.Circle(17.5, (0, 0)), (20, 27)))
+  @Test
+  def testSquareProperties() =
+    assertEquals(16, perimeter(Shape.Square(4, (0, 0))).round)
+    assertTrue(contains(Shape.Square(4, (0, 0)), (3, 2)))
+    assertFalse(contains(Shape.Square(4, (0, 0)), (3, 5)))
+
+

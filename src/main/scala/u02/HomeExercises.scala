@@ -63,35 +63,16 @@ object HomeExercises extends App:
     case Rectangle(sideA: Double, sideB: Double, topLeftCoord: (Double, Double))
     case Circle(radius: Double, center: (Double, Double))
     case Square(side: Double, topLeftCoord: (Double, Double))
-
   object shapeProperties:
     def perimeter(shape: Shape): Double = shape match
       case Shape.Rectangle(a, b, (x, y)) => (a * 2) + (b * 2)
       case Shape.Circle(r, (x, y)) => (r * 2) * 3.14
       case Shape.Square(a, (x, y)) => a * 4
-
     def contains(shape: Shape, point: (Double, Double)): Boolean = shape match
       case Shape.Rectangle(a, b, (x, y)) => (point._1 >= x) && (point._1 <= x + a) && (point._2 >= y) && (point._2 <= y + b)
       case Shape.Circle(r, (x, y)) => pow(point._1 - x, 2) + pow(point._2 - y, 2) <= pow(r, 2)
       case Shape.Square(a, (x, y)) => (point._1 >= x) && (point._1 <= x + a) && (point._2 >= y) && (point._2 <= y + a)
-
-  import shapeProperties.*
-
-  println(perimeter(Shape.Rectangle(12, 7, (0, 0)))) //38
-  println(contains(Shape.Rectangle(12, 7, (0, 0)), (5, 4))) //true
-  println(contains(Shape.Rectangle(2, 3, (0, 0)), (5, 4))) //false
-  println()
-
-  println(perimeter(Shape.Circle(17.5, (0, 0)))) //approx. 110
-  println(contains(Shape.Circle(17.5, (0, 0)), (10, 8))) //true
-  println(contains(Shape.Circle(17.5, (0, 0)), (20, 27))) //false
-  println()
-
-  println(perimeter(Shape.Square(4, (0, 0)))) //16
-  println(contains(Shape.Square(4, (0, 0)), (3, 2))) //true
-  println(contains(Shape.Square(4, (0, 0)), (3, 5))) //false
-  println()
-
+  
 
   //Exercise 8
   enum Option[A]:
