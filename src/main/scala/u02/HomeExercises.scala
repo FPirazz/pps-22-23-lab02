@@ -33,38 +33,29 @@ object HomeExercises extends App:
   def negativeGeneric[X](f: (X => Boolean)): (X => Boolean) =
     s => !f(s)
   val notEmptyGeneric = negativeGeneric(empty)
-  
-  
+
+
   //Exercise4
   val p1: Int => Int => Int => Boolean = x => y => z => x <= y && x <= z && y == z
   val p2: (Int, Int, Int) => Boolean = (x, y, z) => x <= y && x <= z && y == z
   def p3(x: Int)(y: Int)(z: Int): Boolean = x <= y && x <= z && y == z
   def p4(x: Int, y: Int, z: Int): Boolean = x <= y && x <= z && y == z
-  
+
 
   //Exercise 5
   def compose(f: Int => Int, g: Int => Int): Int => Int = x => f(g(x))
   def genericCompose[X](f: X => X, g: X => X): X => X = x => f(g(x))
-  
+
 
   //Exercise 6
   def gcd(a: Int, b: Int): Int = b != 0 && a > b match
     case true => gcd(b, a % b)
     case false => a
-
-  println(gcd(12, 8)) //4
-  println(gcd(14, 7)) //7
-  println()
-
-
   @annotation.tailrec
   def gcdTail(a: Int, b: Int): Int = b != 0 && a > b match
     case false => a
     case true => gcdTail(b, a % b)
 
-  println(gcdTail(12, 8)) //4
-  println(gcdTail(14, 7)) //7
-  println()
 
   //Exercise 7
   import scala.math._

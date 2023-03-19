@@ -75,3 +75,14 @@ class HomeExercisesTest:
   @Test
   def testGenericCompose() =
     assertEquals(9, genericCompose[Int](_ - 1, _ * 2)(5))
+
+
+  //Exercise 6
+  @Test
+  def testGCD() =
+    assertEquals(4, gcd(12, 8))
+    assertEquals(7, gcd(14, 7))
+  @Test
+  def testTailGCD() =
+    assertEquals(4, gcdTail(12, 8))
+    assertEquals(7, gcdTail(14, 7))
