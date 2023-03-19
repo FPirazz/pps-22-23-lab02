@@ -53,20 +53,25 @@ class HomeExercisesTest:
   def testP1() =
     assertTrue(p1(1)(2)(2))
     assertFalse(p1(1)(2)(3))
-
   @Test
   def testP2() =
     assertTrue(p2(1, 2, 2))
     assertFalse(p2(1, 2, 3))
-
   @Test
   def testP3() =
     val p3test = p3(1)(2)
     assertTrue(p3test(2))
     assertFalse(p3test(3))
-
   @Test
   def testP4() =
     assertTrue(p4(1, 2, 2))
     assertFalse(p4(1, 2, 3))
 
+
+  //Exercise 5
+  @Test
+  def testCompose() =
+    assertEquals(9, compose(_ - 1, _ * 2)(5))
+  @Test
+  def testGenericCompose() =
+    assertEquals(9, genericCompose[Int](_ - 1, _ * 2)(5))

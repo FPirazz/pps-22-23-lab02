@@ -37,7 +37,6 @@ object HomeExercises extends App:
   
   //Exercise4
   val p1: Int => Int => Int => Boolean = x => y => z => x <= y && x <= z && y == z
-
   val p2: (Int, Int, Int) => Boolean = (x, y, z) => x <= y && x <= z && y == z
   def p3(x: Int)(y: Int)(z: Int): Boolean = x <= y && x <= z && y == z
   def p4(x: Int, y: Int, z: Int): Boolean = x <= y && x <= z && y == z
@@ -45,12 +44,8 @@ object HomeExercises extends App:
 
   //Exercise 5
   def compose(f: Int => Int, g: Int => Int): Int => Int = x => f(g(x))
-  println(compose(_ - 1, _ * 2)(5)) // 9
-  println()
-
-  def genCompose[X](f: X => X, g: X => X): X => X = x => f(g(x))
-  println(genCompose[Int](_ - 1, _ * 2)(5)) // 9
-  println()
+  def genericCompose[X](f: X => X, g: X => X): X => X = x => f(g(x))
+  
 
   //Exercise 6
   def gcd(a: Int, b: Int): Int = b != 0 && a > b match
