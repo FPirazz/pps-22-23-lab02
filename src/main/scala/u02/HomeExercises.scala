@@ -4,8 +4,8 @@ object HomeExercises extends App:
   //Exercise 3
   //Point a
 
-  //Lambda
-  def positiveFunction(x: Int): String = x match
+  //Method
+  def positiveMethod(x: Int): String = x match
     case x if x >= 0 => "positive"
     case x if x < 0 => "negative"
 
@@ -14,38 +14,22 @@ object HomeExercises extends App:
     case x if x >= 0 => "positive"
     case x if x < 0 => "negative"
 
-  println("PositiveLamb " + positiveLambda(5))
-  println("PositiveLamb " + positiveLambda(-5))
-  println("PositiveLamb " + positiveLambda(0))
-  println()
-
 
   //Point b
   val empty: (String) => (Boolean) = _ == ""
-  val negLambda: (String => Boolean) => String => Boolean =
+
+  //Lambda
+  val negativeLambda: (String => Boolean) => String => Boolean =
     f => s => !f(s)
+  val notEmptyLambda = negativeLambda(empty)
 
-  val notEmptyLambda = negLambda(empty)
-
-  println("NegLamb " + notEmptyLambda("fool"))
-  println("NegLamb " + notEmptyLambda(""))
-  print("NegLamb ")
-  println(notEmptyLambda("foo") && !notEmptyLambda(""))
-  println()
-
-
-  def negFun(f: (String => Boolean)): (String => Boolean) =
+  //Method
+  def negativeMethod(f: (String => Boolean)): (String => Boolean) =
     s => !f(s)
 
-  val notEmptyFun = negFun(empty)
+  val notEmptyFunction = negativeMethod(empty)
 
-  println("NegFun " + notEmptyFun("fool"))
-  println("NegFun " + notEmptyFun(""))
-  print("NegFun ")
-  println(notEmptyFun("foo") && !notEmptyFun(""))
-  println()
-
-
+  
   //Point c
   def negGen[X](f: (X => Boolean)): (X => Boolean) =
     s => !f(s)
